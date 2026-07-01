@@ -3,10 +3,6 @@
 #include "pilha.h"
 
 
-/* Funções das pilha */
-
-
-
 int pilha_cheia(int topo)
 {
     return (topo == MAX - 1);
@@ -31,9 +27,6 @@ int protocolo_existe(Chamada pilha[], int topo, int protocolo)
 
     return 0;
 }
-
-
-/*  principais Operaçoes */
 
 
 int push(Chamada pilha[], int *topo, Chamada nova)
@@ -73,7 +66,6 @@ int peek(Chamada pilha[], int topo, Chamada *consultada)
     return 1;
 }
 
-
 void listar(Chamada pilha[], int topo)
 {
     int i;
@@ -93,7 +85,6 @@ void listar(Chamada pilha[], int topo)
 
     printf("\n");
 
-    /* Percorre do topo ate a base (LIFO) */
     for (i = topo; i >= 0; i--) {
         printf("  %-10d %-30s %-20s %-15s\n",
                pilha[i].protocolo,
