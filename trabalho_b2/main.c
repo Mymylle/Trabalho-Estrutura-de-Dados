@@ -22,7 +22,7 @@ int main(void)
                carregados, ARQUIVO_CSV);
     }
 
-    /* Loop principal do programa */
+    /* Loop principal */
     do {
         opcao = exibir_menu();
 
