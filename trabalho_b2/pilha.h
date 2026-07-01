@@ -6,10 +6,10 @@
 
 
 typedef struct {
-    int  protocolo;    /* Numero unico de identificacao da chamada */
-    char local[50];    /* Local onde ocorreu a emergencia          */
-    char tipo[30];     /* Tipo da ocorrencia (ex: incendio)        */
-    char horario[20];  /* Horario em que a chamada foi registrada  */
+    int  protocolo;   
+    char local[50];   
+    char tipo[30];    
+    char horario[20]; 
 } Chamada;
 
 
