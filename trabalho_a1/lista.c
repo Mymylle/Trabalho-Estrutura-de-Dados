@@ -1,23 +1,9 @@
-/*
- * lista.c
- * Operacoes sobre o vetor de musicas:
- * inserir, listar, buscar por ID, editar e excluir.
- *
- * Disciplina : Estrutura de Dados
- * Curso      : Analise e Desenvolvimento de Sistemas
- * Instituicao: UniJorge
- * Semestre   : 3 semestre
- */
+
 
 #include <stdio.h>
 #include <string.h>
 #include "playlist.h"
 
-/*
- * buscarPorId
- * Percorre o vetor procurando o ID informado.
- * Retorna o indice da musica, ou -1 se nao encontrar.
- */
 int buscarPorId(int id)
 {
     int i;
@@ -29,11 +15,7 @@ int buscarPorId(int id)
     return -1;
 }
 
-/*
- * inserirMusica
- * Cadastra uma nova musica no final do vetor.
- * Verifica se ha espaco e se o ID ja existe antes de inserir.
- */
+
 void inserirMusica(void)
 {
     Musica nova;
@@ -63,11 +45,7 @@ void inserirMusica(void)
     printf("\nMusica cadastrada com sucesso!\n");
 }
 
-/*
- * listarMusicas
- * Exibe todas as musicas cadastradas em formato de tabela.
- * A duracao e convertida de segundos para MM:SS.
- */
+
 void listarMusicas(void)
 {
     int i;
@@ -98,10 +76,7 @@ void listarMusicas(void)
     printf("\nTotal de musicas: %d\n", quantidade);
 }
 
-/*
- * buscarMusica
- * Le um ID do usuario e exibe os dados da musica correspondente.
- */
+
 void buscarMusica(void)
 {
     int id, pos;
@@ -126,11 +101,6 @@ void buscarMusica(void)
     printf("Genero..: %s\n",   playlist[pos].genero);
 }
 
-/*
- * editarMusica
- * Permite alterar um campo especifico de uma musica existente.
- * O ID nao pode ser alterado.
- */
 void editarMusica(void)
 {
     int id, pos, opcao;
@@ -177,11 +147,8 @@ void editarMusica(void)
     printf("\nMusica atualizada com sucesso!\n");
 }
 
-/*
- * excluirMusica
- * Remove uma musica do vetor deslocando os elementos posteriores
- * uma posicao para tras, mantendo a continuidade do vetor.
- */
+
+
 void excluirMusica(void)
 {
     int id, pos, i;
