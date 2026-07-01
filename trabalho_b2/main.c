@@ -1,25 +1,9 @@
-/*
- * main.c
- * Arquivo principal do sistema de pilha de chamadas de emergencia.
- * Controla o fluxo principal do programa e o loop do menu.
- *
- * Tema      : B2 - Chamadas de Emergencia
- * Disciplina: Estrutura de Dados
- * Curso     : Analise e Desenvolvimento de Sistemas
- * Instituicao: UniJorge
- * Semestre  : 3 semestre
- */
-
 #include <stdio.h>2
 #include "pilha.h"
 
 int main(void)
 {
-    /*
-     * Declaracao da pilha como vetor de struct e
-     * da variavel de controle topo, iniciada em -1
-     * (pilha vazia, conforme modelo LIFO).
-     */
+
     Chamada pilha[MAX];
     int     topo = -1;
 
@@ -28,7 +12,6 @@ int main(void)
 
     printf("\n  Iniciando sistema de chamadas de emergencia...\n");
 
-    /* Tentativa de carregamento automatico ao iniciar */
     carregados = carregar_csv(pilha, &topo);
 
     if (carregados == -1) {
@@ -69,10 +52,6 @@ int main(void)
             case 6:
                 printf("\n  --- CARREGAR DO ARQUIVO ---\n");
 
-                /*
-                 * Reinicia a pilha antes de recarregar
-                 * para evitar duplicatas com dados ja em memoria.
-                 */
                 topo = -1;
                 carregados = carregar_csv(pilha, &topo);
 
