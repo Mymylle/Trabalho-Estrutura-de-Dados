@@ -1,22 +1,8 @@
-/*
- * menu.c
- * Funcoes de interface com o usuario:
- * exibicao do menu, leitura de inteiros e leitura de texto.
- *
- * Disciplina : Estrutura de Dados
- * Curso      : Analise e Desenvolvimento de Sistemas
- * Instituicao: UniJorge
- * Semestre   : 3 semestre
- */
-
 #include <stdio.h>
 #include <string.h>
 #include "playlist.h"
 
-/*
- * exibirMenu
- * Imprime as opcoes disponiveis para o usuario.
- */
+
 void exibirMenu(void)
 {
     printf("\n===========================================\n");
@@ -32,11 +18,7 @@ void exibirMenu(void)
     printf("===========================================\n");
 }
 
-/*
- * limparBufferEntrada
- * Descarta os caracteres restantes no buffer do teclado
- * ate encontrar uma quebra de linha ou EOF.
- */
+
 void limparBufferEntrada(void)
 {
     int c;
@@ -45,11 +27,6 @@ void limparBufferEntrada(void)
     }
 }
 
-/*
- * lerInteiro
- * Exibe a mensagem e le um numero inteiro com validacao.
- * Rejeita entradas nao numericas e repete ate receber entrada valida.
- */
 int lerInteiro(const char *mensagem)
 {
     int valor;
@@ -69,11 +46,6 @@ int lerInteiro(const char *mensagem)
     }
 }
 
-/*
- * lerTexto
- * Exibe a mensagem e le uma string com validacao.
- * Nao aceita campo vazio e remove o '\n' do final automaticamente.
- */
 void lerTexto(const char *mensagem, char *destino, int tamanho)
 {
     int len;
