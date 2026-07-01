@@ -1,52 +1,24 @@
-/*
- * pilha.c
- * Implementacao das funcoes de manipulacao da pilha de chamadas
- * de emergencia: push, pop, peek, listagem e verificacoes.
- *
- * Disciplina : Estrutura de Dados
- * Curso      : Analise e Desenvolvimento de Sistemas
- * Instituicao: UniJorge
- * Semestre   : 3 semestre
- */
-
 #include <stdio.h>
 #include <string.h>
 #include "pilha.h"
 
-/* ---------------------------------------------------------- */
-/* Funcoes de controle da pilha                               */
-/* ---------------------------------------------------------- */
 
-/*
- * pilha_cheia
- * Verifica se a pilha atingiu sua capacidade maxima.
- * Parametro: topo - indice atual do topo da pilha.
- * Retorno  : 1 se cheia, 0 caso contrario.
- */
+/* Funções das pilha */
+
+
+
 int pilha_cheia(int topo)
 {
     return (topo == MAX - 1);
 }
 
-/*
- * pilha_vazia
- * Verifica se a pilha nao possui nenhum elemento.
- * Parametro: topo - indice atual do topo da pilha.
- * Retorno  : 1 se vazia, 0 caso contrario.
- */
+
 int pilha_vazia(int topo)
 {
     return (topo == -1);
 }
 
-/*
- * protocolo_existe
- * Percorre a pilha em busca de um protocolo ja cadastrado.
- * Parametros: pilha[]   - vetor de chamadas.
- *             topo      - indice do topo.
- *             protocolo - numero a ser verificado.
- * Retorno   : 1 se encontrado, 0 caso contrario.
- */
+
 int protocolo_existe(Chamada pilha[], int topo, int protocolo)
 {
     int i;
@@ -60,18 +32,10 @@ int protocolo_existe(Chamada pilha[], int topo, int protocolo)
     return 0;
 }
 
-/* ---------------------------------------------------------- */
-/* Operacoes principais da pilha                             */
-/* ---------------------------------------------------------- */
 
-/*
- * push
- * Insere uma nova chamada no topo da pilha.
- * Parametros: pilha[] - vetor de chamadas.
- *             topo    - ponteiro para o indice do topo.
- *             nova    - chamada a ser inserida.
- * Retorno   : 1 em caso de sucesso, 0 se a pilha estiver cheia.
- */
+/*  principais Operaçoes */
+
+
 int push(Chamada pilha[], int *topo, Chamada nova)
 {
     if (pilha_cheia(*topo)) {
@@ -84,14 +48,7 @@ int push(Chamada pilha[], int *topo, Chamada nova)
     return 1;
 }
 
-/*
- * pop
- * Remove a chamada do topo da pilha e a retorna via ponteiro.
- * Parametros: pilha[]   - vetor de chamadas.
- *             topo      - ponteiro para o indice do topo.
- *             removida  - ponteiro para receber a chamada removida.
- * Retorno   : 1 em caso de sucesso, 0 se a pilha estiver vazia.
- */
+
 int pop(Chamada pilha[], int *topo, Chamada *removida)
 {
     if (pilha_vazia(*topo)) {
@@ -104,14 +61,7 @@ int pop(Chamada pilha[], int *topo, Chamada *removida)
     return 1;
 }
 
-/*
- * peek
- * Consulta a chamada do topo sem remover.
- * Parametros: pilha[]    - vetor de chamadas.
- *             topo       - indice atual do topo.
- *             consultada - ponteiro para receber a chamada.
- * Retorno   : 1 em caso de sucesso, 0 se a pilha estiver vazia.
- */
+
 int peek(Chamada pilha[], int topo, Chamada *consultada)
 {
     if (pilha_vazia(topo)) {
@@ -123,12 +73,7 @@ int peek(Chamada pilha[], int topo, Chamada *consultada)
     return 1;
 }
 
-/*
- * listar
- * Exibe todas as chamadas da pilha do topo ate a base.
- * Parametros: pilha[] - vetor de chamadas.
- *             topo    - indice atual do topo.
- */
+
 void listar(Chamada pilha[], int topo)
 {
     int i;
