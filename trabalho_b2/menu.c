@@ -1,48 +1,24 @@
-/*
- * menu.c
- * Funcoes responsaveis pela interface com o usuario:
- * exibicao de menus, leitura de entradas e fluxos de operacao.
- *
- * Disciplina : Estrutura de Dados
- * Curso      : Analise e Desenvolvimento de Sistemas
- * Instituicao: UniJorge
- * Semestre   : 3 semestre
- */
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "pilha.h"
 
-/*
- * limpar_newline
- * Remove o caractere '\n' ao final de uma string lida com fgets.
- * Parametro: str - ponteiro para a string a ser tratada.
- */
 void limpar_newline(char *str)
 {
     str[strcspn(str, "\n")] = '\0';
 }
 
-/*
- * limpar_buffer
- * Descarta os caracteres restantes no buffer de entrada,
- * evitando leituras incorretas em sequencia.
- */
+
 void limpar_buffer(void)
 {
     int c;
 
     while ((c = getchar()) != '\n' && c != EOF) {
-        /* descarta o caractere */
+    
     }
 }
 
-/*
- * exibir_chamada
- * Imprime os dados de uma chamada de forma organizada.
- * Parametro: c - chamada a ser exibida.
- */
+
 void exibir_chamada(Chamada c)
 {
     printf("  +------------------------------------------+\n");
@@ -53,11 +29,7 @@ void exibir_chamada(Chamada c)
     printf("  +------------------------------------------+\n");
 }
 
-/*
- * exibir_menu
- * Exibe as opcoes disponiveis e le a escolha do usuario.
- * Retorno: inteiro correspondente a opcao selecionada.
- */
+
 int exibir_menu(void)
 {
     int opcao;
@@ -87,13 +59,7 @@ int exibir_menu(void)
     return opcao;
 }
 
-/*
- * menu_registrar
- * Conduz o usuario pelo preenchimento dos dados de uma nova chamada
- * e a insere na pilha via push.
- * Parametros: pilha[] - vetor de chamadas.
- *             topo    - ponteiro para o indice do topo.
- */
+
 void menu_registrar(Chamada pilha[], int *topo)
 {
     Chamada nova;
@@ -119,7 +85,7 @@ void menu_registrar(Chamada pilha[], int *topo)
 
     nova.protocolo = protocolo;
 
-    /* Leitura do local */
+    /* local */
     printf("  Local da emergencia: ");
     fgets(nova.local, sizeof(nova.local), stdin);
     limpar_newline(nova.local);
@@ -129,7 +95,7 @@ void menu_registrar(Chamada pilha[], int *topo)
         return;
     }
 
-    /* Leitura do tipo */
+    /* tipo */
     printf("  Tipo da ocorrencia : ");
     fgets(nova.tipo, sizeof(nova.tipo), stdin);
     limpar_newline(nova.tipo);
@@ -139,7 +105,7 @@ void menu_registrar(Chamada pilha[], int *topo)
         return;
     }
 
-    /* Leitura do horario */
+    /* horario */
     printf("  Horario (HH:MM)    : ");
     fgets(nova.horario, sizeof(nova.horario), stdin);
     limpar_newline(nova.horario);
@@ -149,7 +115,7 @@ void menu_registrar(Chamada pilha[], int *topo)
         return;
     }
 
-    /* Insere na pilha */
+    /*pilha */
     if (push(pilha, topo, nova)) {
         printf("  Chamada registrada com sucesso.\n");
         exibir_chamada(nova);
@@ -158,12 +124,7 @@ void menu_registrar(Chamada pilha[], int *topo)
     }
 }
 
-/*
- * menu_atender
- * Remove a chamada do topo da pilha (pop) e exibe seus dados.
- * Parametros: pilha[] - vetor de chamadas.
- *             topo    - ponteiro para o indice do topo.
- */
+
 void menu_atender(Chamada pilha[], int *topo)
 {
     Chamada removida;
@@ -178,12 +139,7 @@ void menu_atender(Chamada pilha[], int *topo)
     }
 }
 
-/*
- * menu_consultar
- * Exibe os dados da chamada no topo sem remove-la (peek).
- * Parametros: pilha[] - vetor de chamadas.
- *             topo    - indice atual do topo.
- */
+
 void menu_consultar(Chamada pilha[], int topo)
 {
     Chamada consultada;
